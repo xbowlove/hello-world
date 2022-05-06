@@ -51,7 +51,7 @@ func modify(value int, pix []byte, size int) {
 	var c byte=uint8(value)
 	for i := 0; i < size; i++ {
 		pix[i]=( pix[i] & 252 )
-		pix[i]=pix[i] & c
+		pix[i]=pix[i] | c
 		// TODO: write your code here
 		// replace last 2 bits of pix[i] with the last 2 bits of value
 		// the next iteration repeats with the next 2 bits of value
