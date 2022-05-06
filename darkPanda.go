@@ -10,15 +10,15 @@ const (
 	headerSize = 54                // standard size of header
 	fileMode   = 0666              // Access permissions
 	maxDepth   = 255               // maximum color depth value
-	srcImg     = "./panda.bmp"     // input image name
-	destImg    = "./Autumn.bmp" // output image name
+	srcImg     = "./Aumtumn.bmp"     // input image name
+	destImg    = "./AUMTUMN.bmp" // output image name
 )
 
 func main() {
 	// Read "panda.bmp"
 	imgBytes, err := ioutil.ReadFile(srcImg)
 	if err != nil {
-		fmt.Printf("read panda.bmp failed, err = %v\n", err)
+		fmt.Printf("read Aumtumn.bmp failed, err = %v\n", err)
 		os.Exit(1)
 	}
 	// For each v in pixel array, invert it with (maxDepth-v)
