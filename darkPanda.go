@@ -11,7 +11,7 @@ const (
 	fileMode   = 0666              // Access permissions
 	maxDepth   = 255               // maximum color depth value
 	srcImg     = "./panda.bmp"     // input image name
-	destImg    = "./darkPanda.bmp" // output image name
+	destImg    = "./Autumn.bmp" // output image name
 )
 
 func main() {
@@ -23,7 +23,7 @@ func main() {
 	}
 	// For each v in pixel array, invert it with (maxDepth-v)
 	for i := headerSize; i < len(imgBytes); i++ {
-		imgBytes[i] = maxDepth - imgBytes[i]
+		imgBytes[i] = imgBytes[i];
 	}
 	// save modified pixel array to "darkPanda.bmp"
 	err = ioutil.WriteFile(destImg, imgBytes, fileMode)
