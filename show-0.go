@@ -29,13 +29,18 @@ func duqulength(pix[] byte,size int){
 	var a byte
 	for i:=0;i<size;i++{
 		a=a|(pix[i] & 3)
-		a=a<<2
+		if i<3{
+			a=a<<2
+		}
 	}
+	length=int(a)
 }
-func duqu(t byte,pix[] byte,size int){
+func duqu(t[] byte,pix[] byte,size int,j int){
 	for i:=0;i<size;i++{
-		t=t| (pix[i]&3)
-		t=t<<2
+		t[j]=t[j]| (pix[i]&3)
+		if i<3{
+			t[j]=t[j]<<2
+		}
 	}
 }
 
@@ -57,7 +62,7 @@ func main() {
 	duqulength(p[S:S+T] ,T)
 	for i:=0;i<length;i++{
 		offset:=S+T+C*i
-		duqu(t[i],p[offset:offset+C],C)
+		duqu(t[0:length-1],p[offset:offset+C],C,i)
 	}
 	err = ioutil.WriteFile(txt, t, 0666)
 	if err != nil {
